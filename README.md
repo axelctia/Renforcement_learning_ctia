@@ -43,4 +43,9 @@ The action space is discrete and consists of three possible actions that the age
 
 These actions are represented by integers in the range [0, 2], where **0** corresponds to **doing nothing** , **1** corresponds to **moving right** , and **2** corresponds  to **moving left**.
 
-## Package
+## Package required to the project
+ * Pygame
+ * Numpy
+ * Gymnasium
+ * Gymnasium [Atari]
+ * Gymnasium [accept-rom-license]
