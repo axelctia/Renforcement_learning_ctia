@@ -57,6 +57,7 @@ To read the project code, you need to install some packages.
  * Gymnasium
  * Gymnasium [Atari]
  * Gymnasium [accept-rom-license]
+
 Please execute the command below in terminal at the directory where you have downloaded this repository to install them:
 
 ```bash
