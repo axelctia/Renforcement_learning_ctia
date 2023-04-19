@@ -1,0 +1,5 @@
+pygame
+numpy
+gymnasium
+gymnasium[Atari]
+gymnasium[accept-rom-license]
