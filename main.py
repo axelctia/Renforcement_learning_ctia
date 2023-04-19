@@ -1,3 +1,4 @@
+import os
 import gymnasium as gym
 import numpy as np
 import torch
@@ -46,45 +47,54 @@ class SARSAAgent:
 
 
 # Define hyperparameters
-episodes = 5000
-max_steps = 200
+episodes = 10000
+max_steps = 500
 
 # Define SARSA agentd
 agent = SARSAAgent(action_size)
 
-# Train the agent using the SARSA algorithm
-for episode in range(episodes):
-    step = 0
-    state, info = env.reset()
-    agent.all_state.append(state)
-    print('Le nombre de state est', len(agent.all_state))
-    action = agent.choose_action(step)
-    done = False
 
-    while not done and step < max_steps:
-        # Take action and observe new state and reward
-        next_state, reward, done, is_truncated, info = env.step(action)
-        # Add one line to agent q_table
-        if agent.q_table.shape[0] < step + 2:
-            agent.q_table = np.append(agent.q_table, [[0, 0, 0]], axis=0)
+if not os.path.isfile('my_model.pt'):
+    print("Le fichier n'existe pas.")
 
-        # Choose next action based on epsilon-greedy policy
-        next_action = agent.choose_action(step + 1)
-        # Update Q-table
-        agent.learn(step, action, reward, step + 1, next_action, done)
-        # Update state and action
-        state = next_state
-        action = next_action
-        # Update step count
-        step += 1
-    # Decay epsilon
+    # Train the agent using the SARSA algorithm
+    for episode in range(episodes):
+        step = 0
+        state, info = env.reset()
+        agent.all_state.append(state)
+        print('Le nombre de state est', len(agent.all_state))
+        action = agent.choose_action(step)
+        done = False
 
-    agent.decay_epsilon()
+        while not done and step < max_steps:
+            # Take action and observe new state and reward
+            next_state, reward, done, is_truncated, info = env.step(action)
+            # Add one line to agent q_table
+            if agent.q_table.shape[0] < step + 2:
+                agent.q_table = np.append(agent.q_table, [[0, 0, 0]], axis=0)
+
+            # Choose next action based on epsilon-greedy policy
+            next_action = agent.choose_action(step + 1)
+            # Update Q-table
+            agent.learn(step, action, reward, step + 1, next_action, done)
+            # Update state and action
+            state = next_state
+            action = next_action
+            # Update step count
+            step += 1
+
+        # Decay epsilon
+        agent.decay_epsilon()
+
+    # Save the model's state dictionary to a file
+    torch.save(agent.q_table, 'my_model.pt')
+
+
+print("Le fichier existe maintenant.")
+# Load the saved state dictionary into a new model object
+loaded_q_table = torch.load('my_model.pt')
 
 # Test the agent with the learned policy
-# Initialize the environment
-state, info = env.reset()
-
 
 # Search state in the all_state from the training
 def find_array_index(arr_list, arr):
@@ -94,33 +104,13 @@ def find_array_index(arr_list, arr):
     return -1  # Si le tableau n'a pas été trouvé dans la liste, retourne -1
 
 
-# Save the model's state dictionary to a file
-torch.save(agent.q_table, 'my_model.pt')
-
-index = find_array_index(agent.all_state, state)
-
-# done = False
-# while not done:
-#     action = np.argmax(agent.q_table[index, :])
-#
-#     state, reward, done, is_truncated, info = env.step(action)
-#     index = find_array_index(agent.all_state, state)
-#     env.render()
-
-
-
-# Load the saved state dictionary into a new model object
-loaded_q_table = torch.load('my_model.pt')
-
 
 env = gym.make('ALE/Skiing-v5', render_mode='human').env
+# Initialize the environment
+state, info = env.reset()
 done = False
 while not done:
     index = find_array_index(agent.all_state, state)
     action = np.argmax(loaded_q_table[index, :])
     state, reward, done, is_truncated, info = env.step(action)
     env.render()
-
-
-
-
