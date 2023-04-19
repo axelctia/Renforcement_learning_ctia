@@ -28,7 +28,7 @@ To create Skiing-v5 environment, you have to import gymnasium and use his`make` 
 
 ### Observation space
 
-In the Skiing-v5 environment in the Gymnasium API, the observation space is a 3D NumPy array with dimensions (210, 160, 3). This means that:
+In the Skiing-v5 environment in the Gymnasium API, the observation space is a **3D NumPy array** with **dimensions (210, 160, 3)**. This means that:
 
 - The observation consists of a series of grayscale images with a resolution of 210x160 pixels.
 - Each pixel in the image is represented by three values corresponding to the red, green, and blue color channels.
@@ -37,10 +37,10 @@ In the Skiing-v5 environment in the Gymnasium API, the observation space is a 3D
 
 The action space is discrete and consists of three possible actions that the agent can take at each timestep:
 
-- Move left: The agent moves the skier to the left.
-- Move right: The agent moves the skier to the right.
-- Do nothing: The agent does not take any action.
+- **Move left**: The agent moves the skier to the left.
+- **Move right**: The agent moves the skier to the right.
+- **Do nothing**: The agent does not take any action.
 
-These actions are represented by integers in the range [0, 2], where 0 corresponds to doing nothing , 1 corresponds to moving right , and 2 corresponds  to moving left.
+These actions are represented by integers in the range [0, 2], where **0** corresponds to **doing nothing** , **1** corresponds to **moving right** , and **2** corresponds  to **moving left**.
 
 ## Package
