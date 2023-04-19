@@ -46,7 +46,7 @@ Here are the steps to download this GitHub repository using the Bash command lin
  * Type the following command:
 
 ```
-git clone https://github.com/axelctia/Renforcement_learning_ctia
+git clone https://github.com/axelctia/Renforcement_learning_ctia.git
 ```
  * Press Enter to execute the command. This will download the GitHub repository and create a new directory containing the project code in the current directory.
 
