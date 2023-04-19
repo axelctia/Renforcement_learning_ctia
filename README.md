@@ -56,12 +56,10 @@ These actions are represented by integers in the range [0, 2], where **0** corre
 Here are the steps to download this GitHub repository using the Bash command line:
 
  * Open a terminal window or Bash command prompt on your computer.
- * Navigate to the directory where you want to download the GitHub repository using the cd command.
- * Go to the GitHub repository page that you want to download.
- * Click the "Code" button and copy the HTTPS or SSH link to the repository.
- * Go back to the terminal window and type the following command:
+ * Navigate to the directory where you want to download the GitHub repository using the `cd` command.
+ * Type the following command:
 
 ```
-git clone 
+git clone https://github.com/axelctia/Renforcement_learning_ctia
 ```
-Press Enter to execute the command. This will download the GitHub repository and create a new directory containing the project code in the current directory.
+ * Press Enter to execute the command. This will download the GitHub repository and create a new directory containing the project code in the current directory.
