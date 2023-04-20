@@ -1,5 +1,3 @@
-# Renforcement_learning_ctia
-
 # Skiing game 
 
 ## Project goal
