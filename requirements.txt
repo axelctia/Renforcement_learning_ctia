@@ -1,6 +1,5 @@
 tqdm
 numpy
-torch
 gymnasium
 gymnasium[Atari]
 gymnasium[accept-rom-license]
