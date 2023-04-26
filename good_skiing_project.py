@@ -25,7 +25,6 @@ import pickle
 
 env = gym.make('ALE/Skiing-v5').env
 env.metadata['render_fps'] = 60
-os.environ["SDL_VIDEODRIVER"] = "dummy"
 
 """## Environment description
 
