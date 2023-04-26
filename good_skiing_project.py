@@ -57,7 +57,7 @@ state, info = env.reset()
 class SARSAAgent:
     """Here is an RL Agent using SARSA to solve our code"""
 
-    def __init__(self, action_size, learning_rate=0.1, discount_factor=0.99, epsilon=1.0, epsilon_min=0.01,
+    def __init__(self, action_size, learning_rate=0.1, discount_factor=0.6, epsilon=1.0, epsilon_min=0.1,
                  epsilon_decay=0.9995):
         self.action_size = action_size
         self.learning_rate = learning_rate
