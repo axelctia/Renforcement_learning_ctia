@@ -52,7 +52,6 @@ git clone https://github.com/axelctia/Renforcement_learning_ctia.git
 To read the project code, you need to install some packages.
  * Tqdm
  * Numpy
- * Torch
  * Gymnasium
  * Gymnasium [Atari]
  * Gymnasium [accept-rom-license]
