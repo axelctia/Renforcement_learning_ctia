@@ -61,3 +61,10 @@ Please execute the command below in terminal at the directory where you have dow
 ```bash
 python -m pip install -r requirements.txt
 ```
+# 🛑 Note
+
+If you launch main.py, the model will be train. But, if you don't want to train the model, you can use an existing model. For that, follow these steps :
+
+* Unzip "objects.zip" in the same folder of main.py
+* Launch "main.py"
+* Enjoy !
